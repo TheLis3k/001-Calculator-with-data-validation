@@ -102,16 +102,16 @@ body {
   transform: scale(0.98);
 }
 
-.calc-btn-op {
+.calc-btn-2 {
   background-color: #0a0a0a;
 }
 
-.calc-btn-op:hover {
+.calc-btn-2:hover {
   background-color: #1a1a1a;
   transform: scale(1.08);
 }
 
-.calc-btn-op:active {
+.calc-btn-2:active {
   background-color: #2a2a2a;
   transform: scale(0.98);
 }
