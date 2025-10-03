@@ -17,6 +17,8 @@ export function calculateOperator() {
   const currentNumber = parseFloat(document.querySelector('.display').innerHTML);
   let result = 0;
 
+  if(currentOperator === null) return;
+
   switch (currentOperator) {
     case '+':
       result = lastNumber + currentNumber;

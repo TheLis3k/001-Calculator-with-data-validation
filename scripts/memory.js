@@ -1,3 +1,5 @@
+import { clearDisplay } from "./display.js";
+
 export function memoryFunction(action) {
   const memory = document.querySelector('.memory-value');
   let memoryValue = parseFloat(memory.innerHTML) || 0;
@@ -8,9 +10,11 @@ export function memoryFunction(action) {
   switch (action) {
     case 'mr+':
       memoryValue += currentValue;
+      clearDisplay();
       break;
     case 'mr-':
       memoryValue -= currentValue;
+      clearDisplay();
       break;
     case 'mr':
       display.innerHTML = memoryValue;
