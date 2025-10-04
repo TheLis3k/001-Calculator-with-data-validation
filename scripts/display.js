@@ -17,12 +17,12 @@ export function updateDisplay(value) {
 
     if (display.innerHTML === '0') {
         display.innerHTML = value;
-        saveToLocalMemory('currentNumber', parseFloat(display.innerHTML));
+        saveToLocalMemory('currentNumber', display.innerHTML);
         return;
     };
 
     display.innerHTML += value;
-    saveToLocalMemory('currentNumber', parseFloat(display.innerHTML));
+    saveToLocalMemory('currentNumber', display.innerHTML);
 };
 
 export function updateLastNumber(lastNumber) {
