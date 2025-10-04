@@ -5,6 +5,8 @@ import { factorial } from "./utils/math.js";
   let currentOperator = null;
 
 export function useOperator(operator) {
+  calculateOperator();
+
   lastNumber = parseFloat(document.querySelector('.display').innerHTML);
   currentOperator = operator;
 
@@ -52,6 +54,8 @@ export function calculateOperator() {
 };
 
 export function calculateSingleOperator(operator) {
+  calculateOperator();
+
   const currentNumber = parseFloat(document.querySelector('.display').innerHTML);
   let result = 0;
 
