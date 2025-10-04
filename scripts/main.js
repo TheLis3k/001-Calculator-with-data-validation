@@ -1,5 +1,5 @@
 import { updateDisplay, clearDisplay, clearLastNumberDisplay, clearOperatorDisplay, loadEntireDisplay } from "./display.js";
-import { useOperator, calculateOperator, calculateSingleOperator } from "./calculator.js";
+import { useOperator, calculateOperator, calculateSingleOperator, backspace } from "./calculator.js";
 import { memoryFunction } from "./memory.js";
 import { copyToClipboard, pasteFromClipboard } from "./utils/clipBoard.js";
 
@@ -15,9 +15,14 @@ buttons.forEach(button => {
 
 const clearButton = document.querySelector('.calc-btn-c');
 clearButton.addEventListener('click', () => {
-    clearDisplay();
-    clearLastNumberDisplay();
-    clearOperatorDisplay();
+  clearDisplay();
+  clearLastNumberDisplay();
+  clearOperatorDisplay();
+});
+
+const backspaceButton = document.querySelector('.calc-btn-backspace');
+backspaceButton.addEventListener('click', () => {
+  backspace();
 });
 
 const operatorButtons = document.querySelectorAll('.calc-btn-op');
@@ -48,7 +53,6 @@ memoryButtons.forEach(button => {
     memoryFunction(action);
   });
 });
-
 
 document.addEventListener('keydown', (button) =>{
 
@@ -93,9 +97,12 @@ document.addEventListener('keydown', (button) =>{
   if (button.key === '!') {
     calculateSingleOperator('!');
   };
-  if (button.key === 'Backspace' || button.key === 'c' || button.key === 'C') {
+  if (button.key === 'c' || button.key === 'C') {
     clearDisplay();
     clearLastNumberDisplay();
     clearOperatorDisplay();
+  };
+  if (button.key === 'Backspace') {
+    backspace();
   };
 });

@@ -108,3 +108,13 @@ export function calculateSingleOperator(operator) {
   updateLastNumber(getFromLocalMemory('lastNumber'));
   updateOperatorDisplay('null');
 };
+
+export function backspace() {
+  const display = document.querySelector('.display');
+  if (display.textContent.length > 1) {
+    display.textContent = display.textContent.slice(0, -1);
+  } else {
+    display.textContent = '0';
+  };
+  saveToLocalMemory('currentNumber', parseFloat(display.textContent));
+};
