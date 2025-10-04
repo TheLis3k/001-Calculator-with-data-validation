@@ -1,6 +1,7 @@
 import { updateDisplay, clearDisplay, clearLastNumberDisplay, clearOperatorDisplay, loadEntireDisplay } from "./display.js";
 import { useOperator, calculateOperator, calculateSingleOperator } from "./calculator.js";
 import { memoryFunction } from "./memory.js";
+import { copyToClipboard, pasteFromClipboard } from "./utils/clipBoard.js";
 
 loadEntireDisplay();
 
@@ -50,9 +51,23 @@ memoryButtons.forEach(button => {
 
 
 document.addEventListener('keydown', (button) =>{
-  
+
+  if (button.ctrlKey && button.key === 'v') {
+    pasteFromClipboard().then(value => {
+      updateDisplay(value);
+      return;
+    });
+  };
+  if (button.ctrlKey && button.key === 'c') {
+    copyToClipboard(document.querySelector('.display').innerHTML);
+    return;
+  };
+
   if (button.key >= '0' && button.key <= '9') {
     updateDisplay(button.key);
+  };
+    if (button.key === '.') {
+    updateDisplay('.');
   };
   if (button.key === '=' || button.key === 'Enter') {
     calculateOperator();
