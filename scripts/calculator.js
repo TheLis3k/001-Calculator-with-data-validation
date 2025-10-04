@@ -46,6 +46,7 @@ export function calculateOperator() {
   document.querySelector('.display').innerHTML = result;
   saveToLocalMemory('lastNumber', result);
   saveToLocalMemory('currentOperator', null);
+  saveToLocalMemory('currentNumber', result);
 
   updateLastNumber(getFromLocalMemory('lastNumber'));
   updateOperatorDisplay('null');
@@ -96,6 +97,7 @@ export function calculateSingleOperator(operator) {
   document.querySelector('.display').innerHTML = result;
   saveToLocalMemory('lastNumber', result);
   saveToLocalMemory('currentOperator', null);
+  saveToLocalMemory('currentNumber', result);
 
   updateLastNumber(getFromLocalMemory('lastNumber'));
   updateOperatorDisplay('null');

@@ -1,4 +1,4 @@
-import { getFromLocalMemory, saveToLocalMemory, clearLocalMemory, clearAllLocalMemory } from "./utils/localMemory.js";
+import { getFromLocalMemory, saveToLocalMemory, clearLocalMemory } from "./utils/localMemory.js";
 
 export function loadEntireDisplay() {
     const display = document.querySelector('.display');
@@ -17,6 +17,7 @@ export function updateDisplay(value) {
 
     if (display.innerHTML === '0') {
         display.innerHTML = value;
+        saveToLocalMemory('currentNumber', parseFloat(display.innerHTML));
         return;
     };
 

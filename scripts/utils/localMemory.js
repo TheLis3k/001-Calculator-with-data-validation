@@ -10,7 +10,3 @@ export function getFromLocalMemory(key) {
 export function clearLocalMemory(key) {
   localStorage.removeItem(key);
 };
-
-export function clearAllLocalMemory() {
-  localStorage.clear();
-};
