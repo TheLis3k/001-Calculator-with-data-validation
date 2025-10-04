@@ -1,7 +1,8 @@
-import { updateDisplay, clearDisplay, clearLastNumberDisplay, clearOperatorDisplay } from "./display.js";
+import { updateDisplay, clearDisplay, clearLastNumberDisplay, clearOperatorDisplay, loadEntireDisplay } from "./display.js";
 import { useOperator, calculateOperator, calculateSingleOperator } from "./calculator.js";
 import { memoryFunction } from "./memory.js";
 
+loadEntireDisplay();
 
 const buttons = document.querySelectorAll('.calc-btn-num');
 buttons.forEach(button => {
