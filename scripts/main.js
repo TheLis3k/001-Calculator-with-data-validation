@@ -47,3 +47,40 @@ memoryButtons.forEach(button => {
     memoryFunction(action);
   });
 });
+
+
+document.addEventListener('keydown', (button) =>{
+  
+  if (button.key >= '0' && button.key <= '9') {
+    updateDisplay(button.key);
+  };
+  if (button.key === '=' || button.key === 'Enter') {
+    calculateOperator();
+  };
+  if (button.key === '+') {
+    useOperator('+');
+  };
+  if (button.key === '-') {
+    useOperator('-');
+  };
+  if (button.key === '*') {
+    useOperator('*');
+  };
+  if (button.key === '/') {
+    useOperator('/');
+  };
+  if (button.key === '%') {
+    useOperator('%');
+  };
+  if (button.key === '^') {
+    useOperator('x^y');
+  };
+  if (button.key === '!') {
+    calculateSingleOperator('!');
+  };
+  if (button.key === 'Backspace' || button.key === 'c' || button.key === 'C') {
+    clearDisplay();
+    clearLastNumberDisplay();
+    clearOperatorDisplay();
+  };
+});

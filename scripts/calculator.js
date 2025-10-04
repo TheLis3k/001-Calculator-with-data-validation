@@ -38,6 +38,9 @@ export function calculateOperator() {
     case 'x^y':
       result = getFromLocalMemory('lastNumber') ** getFromLocalMemory('currentNumber');
       break;
+    case 'y√x':
+      result = getFromLocalMemory('lastNumber') ** (1 / getFromLocalMemory('currentNumber'));
+      break;
     default:
       result = getFromLocalMemory('currentNumber');
       break;
@@ -91,6 +94,9 @@ export function calculateSingleOperator(operator) {
       break;
     case 'x^-1':
       result = getFromLocalMemory('currentNumber') ** -1;
+      break;
+    default:
+      result = getFromLocalMemory('currentNumber');
       break;
     };
 
