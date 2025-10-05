@@ -62,6 +62,12 @@ export function calculateOperator() {
       break;
   }
 
+  if(validation.maxMinValue(result)){
+    result = 0;
+  };
+
+  result = Number(result.toFixed(10));
+
   document.querySelector('.display').innerHTML = result;
   saveToLocalMemory('lastNumber', result);
   saveToLocalMemory('currentOperator', null);
@@ -120,6 +126,12 @@ export function calculateSingleOperator(operator) {
       result = currentNumber;
       break;
     };
+
+  if(validation.maxMinValue(result)){
+    result = 0;
+  };
+
+  result = result.toFixed(10);
 
   document.querySelector('.display').innerHTML = result;
   saveToLocalMemory('lastNumber', result);

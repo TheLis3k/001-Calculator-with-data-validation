@@ -73,3 +73,13 @@ export function powOfZero (num, pow) {
     return true;
   } else return false;
 };
+
+export function maxMinValue (num) {
+  if (num === Infinity) {
+    errorMessage('Number exceed maximum number limit');
+    return true;
+  } else if (num === -Infinity) {
+    errorMessage('Number exceed minimum number limit');
+    return true;
+  } else return false;
+};
