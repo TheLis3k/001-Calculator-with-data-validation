@@ -20,15 +20,56 @@ function errorMessage(message) {
   };
 };
 
-export function DivideByZero(num) {
+export function divideByZero(num) {
   if (num === 0) {
     errorMessage(`Can't divide by 0`);
-    return 1;
-  } else return num;
+    return true;
+  } else return false;
 };
 
-export function ModuloFromZero(num) {
+export function moduloFromZero(num) {
   if (num === 0) {
-    errorMessage(`Can't modulo from 0`)
-  };
+    errorMessage(`Can't modulo from 0`);
+    return true;
+  } else return false;
+};
+
+export function rootOfMinusNumber(num,root) {
+  if (root === 0){
+    errorMessage(`Can't do 0 root`);
+    return true;
+  } else if (num < 0 && !(root % 2)) {
+    errorMessage(`Can't even root of negative number`);
+    return true;
+  } else return false;
+};
+
+export function factorialOfNegative(num) {
+  if (num < 0) {
+    errorMessage(`Can't do factorial of negative number`);
+    return true;
+  } else if (num % 1) {
+    errorMessage(`Can't do factorial of decimal numbers`);
+    return true;
+  } else return false;
+};
+
+export function logarytmOfZero (num) {
+  if (num === 0) {
+    errorMessage(`Can't do logarythm of 0`);
+    return true;
+  } else if (num < 0) {
+    errorMessage(`Can't do logarythm of negative num`);
+    return true;
+  } else return false;
+};
+
+export function powOfZero (num, pow) {
+  if (num === 0 && pow === 0) {
+    errorMessage(`Can't do 0 to the power of 0`);
+    return true;
+  } else if (num < 0 && pow % 1) {
+    errorMessage(`Can't do negative number to fractional power`);
+    return true;
+  } else return false;
 };

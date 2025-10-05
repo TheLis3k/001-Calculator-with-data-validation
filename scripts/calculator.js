@@ -34,15 +34,27 @@ export function calculateOperator() {
       result = lastNumber * currentNumber;
       break;
     case '/':
-      result = lastNumber / validation.DivideByZero(currentNumber);
+      if (validation.divideByZero(currentNumber)) {
+        break;
+      }
+      result = lastNumber / currentNumber;
       break;
     case '%':
-      result = lastNumber % validation.ModuloFromZero(currentNumber);
+      if (validation.moduloFromZero(currentNumber)) {
+        break;
+      };
+      result = lastNumber % currentNumber;
       break;
     case 'x^y':
+      if (validation.powOfZero(lastNumber, currentNumber)) {
+        break;
+      };
       result = lastNumber ** currentNumber;
       break;
     case 'y√x':
+      if (validation.rootOfMinusNumber(lastNumber, currentNumber)) {
+        break;
+      };
       result = lastNumber ** (1 / currentNumber);
       break;
     default:
@@ -65,42 +77,47 @@ export function calculateSingleOperator(operator) {
   saveToLocalMemory('currentNumber', parseFloat(document.querySelector('.display').innerHTML));
   let result = 0;
 
+  const currentNumber = getFromLocalMemory('currentNumber');
+
   switch (operator) {
     case 'x^2':
-      result = getFromLocalMemory('currentNumber') ** 2;
+      result = currentNumber ** 2;
       break;
     case 'x^3':
-      result = getFromLocalMemory('currentNumber') ** 3;
+      result = currentNumber ** 3;
       break;
     case '√x':
-      result = Math.sqrt(getFromLocalMemory('currentNumber'));
+      if (validation.rootOfMinusNumber(currentNumber, 2)) {
+        break;
+      };
+      result = Math.sqrt(currentNumber);
       break;
     case '!':
-      result = factorial(getFromLocalMemory('currentNumber'));
+      if (validation.factorialOfNegative(currentNumber)) {
+        break;
+      };
+      result = factorial(currentNumber);
       break;
     case 'log x':
-      result = Math.log10(getFromLocalMemory('currentNumber'));
+      result = Math.log10(currentNumber);
       break;
     case '1/x':
-      result = 1 / getFromLocalMemory('currentNumber');
+      result = 1 / currentNumber;
       break;
     case 'sin x':
-      result = Math.sin(getFromLocalMemory('currentNumber'));
+      result = Math.sin(currentNumber);
       break;
     case 'cos x':
-      result = Math.cos(getFromLocalMemory('currentNumber'));
+      result = Math.cos(currentNumber);
       break;
     case 'tan x':
-      result = Math.tan(getFromLocalMemory('currentNumber'));
-      break;
-    case 'ln x':
-      result = Math.log(getFromLocalMemory('currentNumber'));
+      result = Math.tan(currentNumber);
       break;
     case 'x^-1':
-      result = getFromLocalMemory('currentNumber') ** -1;
+      result = currentNumber ** -1;
       break;
     default:
-      result = getFromLocalMemory('currentNumber');
+      result = currentNumber;
       break;
     };
 
