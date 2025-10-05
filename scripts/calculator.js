@@ -105,6 +105,9 @@ export function calculateSingleOperator(operator) {
       result = factorial(currentNumber);
       break;
     case 'log x':
+      if (validation.logarytmOfZero(currentNumber)) {
+        break;
+      };
       result = Math.log10(currentNumber);
       break;
     case '1/x':
