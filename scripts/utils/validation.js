@@ -71,7 +71,10 @@ export function powOfZero (num, pow) {
   } else if (num < 0 && pow % 1) {
     errorMessage(`Can't do negative number to fractional power`);
     return true;
-  } else return false;
+  } else if (pow < 0) {
+    errorMessage(`Can't do power of negative num`);
+    return true;
+  } return false;
 };
 
 export function maxMinValue (num) {
@@ -82,4 +85,34 @@ export function maxMinValue (num) {
     errorMessage('Number exceed minimum number limit');
     return true;
   } else return false;
+};
+
+export function validateCalculatorPaste(num) {
+  const trimmed = num.trim();
+
+  if(!trimmed) {
+    errorMessage(`Input can't be empty`);
+    return 0;
+  };
+
+  const validNumberPattern = /^[-+]?[0-9]*\.?[0-9]+$/;
+
+  if (validNumberPattern.test(trimmed)){
+    return trimmed;
+  };
+
+  errorMessage('Invalid paste, only numbers/one . allowed');
+  return 0;
+};
+
+export function validateCalculatorInput(num) {
+
+  const validNumberPattern = /^[-+]?([0-9]+\.?[0-9]*|\.[0-9]+)$/;
+
+  if (validNumberPattern.test(num)){
+    return false;
+  };
+
+  errorMessage('Invalid input only one . allowed');
+  return true;
 };

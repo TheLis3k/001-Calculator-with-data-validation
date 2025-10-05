@@ -1,4 +1,5 @@
 import { getFromLocalMemory, saveToLocalMemory, clearLocalMemory } from "./utils/localMemory.js";
+import * as validation from "./utils/validation.js"
 
 export function loadEntireDisplay() {
     const display = document.querySelector('.display');
@@ -14,6 +15,10 @@ export function loadEntireDisplay() {
 
 export function updateDisplay(value) {
     const display = document.querySelector('.display');
+
+    if (validation.validateCalculatorInput(display.innerHTML + value)) {
+        return;
+    };
 
     if (display.innerHTML === '0') {
         display.innerHTML = value;

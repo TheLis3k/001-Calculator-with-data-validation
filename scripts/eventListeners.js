@@ -2,6 +2,7 @@ import { updateDisplay, clearDisplay, clearLastNumberDisplay, clearOperatorDispl
 import { useOperator, calculateOperator, calculateSingleOperator, backspace } from "./calculator.js";
 import { memoryFunction } from "./memory.js";
 import { copyToClipboard, pasteFromClipboard } from "./utils/clipBoard.js";
+import { validateCalculatorPaste } from "./utils/validation.js";
 
 export function setEventListeners() {
 
@@ -58,6 +59,7 @@ export function setEventListeners() {
 
     if (button.ctrlKey && button.key === 'v') {
       pasteFromClipboard().then(value => {
+        value = validateCalculatorPaste(value);
         updateDisplay(value);
         return;
       });
