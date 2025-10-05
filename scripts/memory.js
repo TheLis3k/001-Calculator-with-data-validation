@@ -10,12 +10,16 @@ export function memoryFunction(action) {
 
   switch (action) {
     case 'mr+':
-      memoryValue += currentValue;
+      if (memoryValue === 0){
+        memoryValue = currentValue;
+      } else memoryValue += currentValue;
       saveToLocalMemory('memoryValue', memoryValue);
       clearDisplay();
       break;
     case 'mr-':
-      memoryValue -= currentValue;
+      if (memoryValue === 0){
+        memoryValue = currentValue;
+      } else memoryValue -= currentValue;
       saveToLocalMemory('memoryValue', memoryValue);
       clearDisplay();
       break;

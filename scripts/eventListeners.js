@@ -1,4 +1,4 @@
-import { updateDisplay, clearDisplay, clearLastNumberDisplay, clearOperatorDisplay, loadEntireDisplay } from "./display.js";
+import { updateDisplay, clearDisplay, clearLastNumberDisplay, clearOperatorDisplay } from "./display.js";
 import { useOperator, calculateOperator, calculateSingleOperator, backspace } from "./calculator.js";
 import { memoryFunction } from "./memory.js";
 import { copyToClipboard, pasteFromClipboard } from "./utils/clipBoard.js";

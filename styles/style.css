@@ -37,6 +37,32 @@ body {
   letter-spacing: 2px;
 }
 
+.error-messages {
+  position: fixed;
+  top: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: #dd5555;
+  padding: 12px 24px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(255, 0, 0, 0.2);
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  z-index: 1000;
+}
+
+.error-messages p {
+  margin: 0;
+  background-color: transparent;
+  font-family: 'Consolas', monospace;
+  font-size: 16px;
+  color: #001100;
+}
+
+.error-messages-show {
+  opacity: 0.8;
+}
+
 .buttons {
   display: grid;
   grid-template-columns: repeat(5, 1fr);

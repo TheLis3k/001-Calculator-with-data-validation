@@ -1,6 +1,7 @@
 import { clearDisplay, updateLastNumber, updateOperatorDisplay } from "./display.js"; 
 import { factorial } from "./utils/math.js";
 import { getFromLocalMemory, saveToLocalMemory } from "./utils/localMemory.js";
+import * as validation from "./utils/validation.js";
 
 export function useOperator(operator) {
   calculateOperator();
@@ -19,30 +20,33 @@ export function calculateOperator() {
 
   if(getFromLocalMemory('currentOperator') === null) return;
 
+  const currentNumber = getFromLocalMemory('currentNumber');
+  const lastNumber = getFromLocalMemory('lastNumber');
+
   switch (getFromLocalMemory('currentOperator')) {
     case '+':
-      result = getFromLocalMemory('lastNumber') + getFromLocalMemory('currentNumber');
+      result = lastNumber + currentNumber;
       break;
     case '-':
-      result = getFromLocalMemory('lastNumber') - getFromLocalMemory('currentNumber');
+      result = lastNumber - currentNumber;
       break;
     case '*':
-      result = getFromLocalMemory('lastNumber') * getFromLocalMemory('currentNumber');
+      result = lastNumber * currentNumber;
       break;
     case '/':
-      result = getFromLocalMemory('lastNumber') / getFromLocalMemory('currentNumber');
+      result = lastNumber / validation.DivideByZero(currentNumber);
       break;
     case '%':
-      result = getFromLocalMemory('lastNumber') % getFromLocalMemory('currentNumber');
+      result = lastNumber % validation.ModuloFromZero(currentNumber);
       break;
     case 'x^y':
-      result = getFromLocalMemory('lastNumber') ** getFromLocalMemory('currentNumber');
+      result = lastNumber ** currentNumber;
       break;
     case 'y√x':
-      result = getFromLocalMemory('lastNumber') ** (1 / getFromLocalMemory('currentNumber'));
+      result = lastNumber ** (1 / currentNumber);
       break;
     default:
-      result = getFromLocalMemory('currentNumber');
+      result = currentNumber;
       break;
   }
 
@@ -51,7 +55,7 @@ export function calculateOperator() {
   saveToLocalMemory('currentOperator', null);
   saveToLocalMemory('currentNumber', result);
 
-  updateLastNumber(getFromLocalMemory('lastNumber'));
+  updateLastNumber(lastNumber);
   updateOperatorDisplay('null');
 };
 
