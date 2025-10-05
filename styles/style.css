@@ -35,6 +35,9 @@ body {
   font-family: 'Consolas', monospace;
   box-sizing: border-box;
   letter-spacing: 2px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
 }
 
 .error-messages {
