@@ -1,6 +1,6 @@
-import { loadEntireDisplay } from "./display.js";
-import { setEventListeners } from "./eventListeners.js";
-
+import { loadEntireDisplay, nonExpandedCalculator } from "./display.js";
+import { setKeyDownListeners } from "./eventListeners.js";
 
 loadEntireDisplay();
-setEventListeners();
+nonExpandedCalculator();
+setKeyDownListeners();

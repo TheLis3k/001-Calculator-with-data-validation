@@ -1,4 +1,4 @@
-import { updateDisplay, clearDisplay, clearLastNumberDisplay, clearOperatorDisplay } from "./display.js";
+import { updateDisplay, clearDisplay, clearLastNumberDisplay, clearOperatorDisplay, nonExpandedCalculator, expandedCalculator } from "./display.js";
 import { useOperator, calculateOperator, calculateSingleOperator, backspace } from "./calculator.js";
 import { memoryFunction } from "./memory.js";
 import { copyToClipboard, pasteFromClipboard } from "./utils/clipBoard.js";
@@ -55,6 +55,19 @@ export function setEventListeners() {
     });
   });
 
+  const expandButton = document.querySelector('.expand-btn');
+  if (expandButton.classList.contains('expanded')){
+    expandButton.addEventListener('click', () => {
+      nonExpandedCalculator();
+    });
+  } else {
+    expandButton.addEventListener('click', () => {
+      expandedCalculator();
+    });
+  };
+};
+
+export function setKeyDownListeners() {
   document.addEventListener('keydown', (button) =>{
 
     if (button.ctrlKey && button.key === 'v') {
@@ -108,5 +121,4 @@ export function setEventListeners() {
       backspace();
     };
   });
-
 };

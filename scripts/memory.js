@@ -8,6 +8,9 @@ export function memoryFunction(action) {
   const display = document.querySelector('.display');
   let currentValue = getFromLocalMemory('currentNumber') || 0;
 
+  memoryValue = Number(memoryValue);
+  currentValue = Number(currentValue);
+
   switch (action) {
     case 'mr+':
       if (memoryValue === 0){

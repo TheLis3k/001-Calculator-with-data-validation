@@ -10,10 +10,11 @@
   <meta name="description" content="Kalkulator stworzony przez Ksawerego Chabowskiego">
   <meta name="author" content="Ksawery Chabowski">
 
+  <link rel="preload" href="./styles/style.css" as="style">
   <link rel="stylesheet" href="./styles/style.css">
 </head>
 <body>
-  <div class="error-messages"><p class="error-message-text">Error: can't divide by 0</p></div>
+  <div class="error-messages"><p class="error-message-text"></p></div>
   <div class="calculator-body">
     <div class="calc-functions">
       <button class="expand-btn">Expand</button>
@@ -25,45 +26,9 @@
     </div>
     <div class="display">0</div>
     <div class="buttons">
-      <div class="calc-btn calc-btn-num">7</div>
-      <div class="calc-btn calc-btn-num">8</div>
-      <div class="calc-btn calc-btn-num">9</div>
-      <div class="calc-btn calc-btn-op calc-btn-2">/</div>
-      <div class="calc-btn calc-btn-single-op">x^2</div>
-      <div class="calc-btn calc-btn-num">4</div>
-      <div class="calc-btn calc-btn-num">5</div>
-      <div class="calc-btn calc-btn-num">6</div>
-      <div class="calc-btn calc-btn-op calc-btn-2">*</div>
-      <div class="calc-btn calc-btn-single-op">x^3</div>
-      <div class="calc-btn calc-btn-num">1</div>
-      <div class="calc-btn calc-btn-num">2</div>
-      <div class="calc-btn calc-btn-num">3</div>
-      <div class="calc-btn calc-btn-op calc-btn-2">-</div>
-      <div class="calc-btn calc-btn-op">x^y</div>
-      <div class="calc-btn calc-btn-num">.</div>
-      <div class="calc-btn calc-btn-num">0</div>
-      <div class="calc-btn calc-btn-eq calc-btn-3">=</div>
-      <div class="calc-btn calc-btn-op calc-btn-2">+</div>
-      <div class="calc-btn calc-btn-single-op">√x</div>
-      <div class="calc-btn calc-btn-c calc-btn-3">c</div>
-      <div class="calc-btn calc-btn-backspace calc-btn-3">&#9003;</div>
-      <div class="calc-btn calc-btn-single-op calc-btn-2">!</div>
-      <div class="calc-btn calc-btn-op calc-btn-2">%</div>
-      <div class="calc-btn calc-btn-op">y√x</div>
-      <div class="calc-btn calc-btn-mem">mrc</div>
-      <div class="calc-btn calc-btn-mem">mr</div>
-      <div class="calc-btn calc-btn-mem">mr+</div>
-      <div class="calc-btn calc-btn-mem">mr-</div>
-      <div class="calc-btn calc-btn-single-op">1/x</div>
-      <div class="calc-btn calc-btn-single-op">sin x</div>
-      <div class="calc-btn calc-btn-single-op">cos x</div>
-      <div class="calc-btn calc-btn-single-op">tan x</div>
-      <div class="calc-btn calc-btn-single-op">log x</div>
-      <div class="calc-btn calc-btn-single-op">x^-1</div>
     </div>
   </div>
 
   <script src="./scripts/main.js" type="module"></script>
-  <script src="./scripts/eventListeners.js" type="module"></script>
 </body>
 </html>

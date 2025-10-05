@@ -9,8 +9,8 @@ export function useOperator(operator) {
   saveToLocalMemory('lastNumber', parseFloat(document.querySelector('.display').innerHTML));
   saveToLocalMemory('currentOperator', operator);
 
-  updateLastNumber(getFromLocalMemory('lastNumber'));
-  updateOperatorDisplay(getFromLocalMemory('currentOperator'));
+  updateLastNumber();
+  updateOperatorDisplay();
   clearDisplay();
 };
 
@@ -73,8 +73,8 @@ export function calculateOperator() {
   saveToLocalMemory('currentOperator', null);
   saveToLocalMemory('currentNumber', result);
 
-  updateLastNumber(lastNumber);
-  updateOperatorDisplay('null');
+  updateLastNumber();
+  updateOperatorDisplay();
 };
 
 export function calculateSingleOperator(operator) {
@@ -138,8 +138,8 @@ export function calculateSingleOperator(operator) {
   saveToLocalMemory('currentOperator', null);
   saveToLocalMemory('currentNumber', result);
 
-  updateLastNumber(getFromLocalMemory('lastNumber'));
-  updateOperatorDisplay('null');
+  updateLastNumber();
+  updateOperatorDisplay();
 };
 
 export function backspace() {
